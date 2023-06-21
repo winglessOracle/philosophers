@@ -6,7 +6,7 @@
 #    By: carlo <carlo@student.42.fr>                  +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/10 09:28:26 by cwesseli      #+#    #+#                  #
-#    Updated: 2023/06/20 08:39:18 by wingessorac   ########   odam.nl          #
+#    Updated: 2023/06/21 14:28:56 by wingessorac   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,20 +23,19 @@ CC			 ?=	clang
 CFLAGS		 =	-Wall -Wextra -Werror -pthread
 
 #//= Locations =//#
-INCLUDE		=	./include
-HEADERS		=	-I $(INCLUDE)
+HEADERS		=	-I ./include
 OBJ_FILES	=	$(addprefix obj/, philosophers.o checks.o init.o utils.o thread_ops.o atol.o)
 
 #//= Modifiable =//#
 all: $(TARGET)
 	
 $(TARGET): $(OBJ_FILES)
-	@$(CC) $(OBJ_FILES) $(HEADERS) -o $(TARGET) $(CFLAGS)
+	@$(CC) $(OBJ_FILES) -o $(TARGET) $(CFLAGS)
 
 $(OBJ_FILES): obj/%.o: src/%.c 
 	@mkdir -p $(dir $@)
 	@echo -e "$(GREEN)Compiling Philosophers:$(RESET) $(notdir $<)"
-	@$(CC) -c $(CFLAGS) $(HEADERS) -o $@ $< 
+	@$(CC) -c $(CFLAGS) $(HEADERS) -o $@ $<
 
 clean:
 	@echo -e "$(BLUE)Remoning OBJ files$(RESET)"
