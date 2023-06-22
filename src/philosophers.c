@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/05/22 09:56:54 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/06/20 14:17:19 by wingessorac   ########   odam.nl         */
+/*   Updated: 2023/06/22 14:18:21 by wingessorac   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,17 +83,17 @@ int	main(int argc, char **argv)
 
 	data = NULL;
 	if (check_arguments(argc, argv))
-		return (1);
+		return (FAILD_ARGUMENTS);
 	g_data = malloc(sizeof(t_gdata));
 	if (!g_data)
-		return (2);
+		return (FAILD_MALLOC_GDATA);
 	if (init_gdata(argc, argv, g_data))
-		return (destroy_mutex_free(g_data), 3);
+		return (destroy_mutex_free(g_data), FAILD_INIT_GDATA);
 	gettimeofday(&g_data->start_time, NULL);
 	if (make_threads(g_data, data))
-		return (destroy_mutex_free(g_data), 4);
+		return (destroy_mutex_free(g_data), FAILD_MAKE_THREADS);
 	if (join_threads(g_data))
-		return (destroy_mutex_free(g_data), 5);
+		return (destroy_mutex_free(g_data), FAILD_JOIN_THREADS);
 	if (!g_data->game_over && argv[5])
 		printf("%ld All Philosophers are full after %d meal(s)\n", \
 			timestamp(g_data), g_data->num_must_eat);

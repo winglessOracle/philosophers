@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/05/22 09:41:36 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/06/19 15:18:23 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/06/22 14:17:11 by wingessorac   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@
 # ifndef MAX_THREADS
 #  define MAX_THREADS 10240
 # endif
+
+# define FAILD_ARGUMENTS 1
+# define FAILD_MALLOC_GDATA 2
+# define FAILD_INIT_GDATA 3
+# define FAILD_MAKE_THREADS 4
+# define FAILD_JOIN_THREADS 5
 
 typedef enum e_message
 {
