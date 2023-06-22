@@ -1,7 +1,11 @@
 # Philosphers | CODAM Amsterdam
 
 ## Introduction
-This CODAM assignment involves writing a program in C to simulate a group of philosophers sitting at a round table. The goal is to implement a solution that allows the philosophers to eat, think, and sleep without any deadlocks or starvation.
+This CODAM assignment to master the fundamentals of multithreading and avoiding race conditions and deadlocks. It involves writing a program in C to simulate a version of the "dining philosophers problem": 
+This scenario involves a group of philosophers sitting around a circular table with a bowl of spagetti in the center and a single fork placed between each pair of adjacent philosophers. 
+The philosophers alternate between thinking, eating and sleeping. However, each philosopher requires two forks to eat. The dilemma arises when each philosopher tries to pick up the forks simultaneously. 
+If they all reach out at the same time, they will end up in a deadlock situation where none of them can proceed. This deadlock occurs because each philosopher holds one fork and is waiting for the other one to become available, 
+resulting in a standstill.
 
 ## Requirements
 The program should take the following command-line arguments:
